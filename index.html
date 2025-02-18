@@ -76,26 +76,59 @@
             z-index: 0;
         }
 
-        /* Mejoras de accesibilidad */
-        a:focus, button:focus {
-            outline: 2px solid #fbbf24; /* Amarillo Tailwind */
-            outline-offset: 2px;
-        }
-
-        /* Estilos para el modal */
-        #videoModal {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #videoModal .bg-gray-800 {
+        /* Efecto Ripple */
+        .ripple {
             position: relative;
-            z-index: 60;
+            overflow: hidden;
         }
 
-        #videoModal .absolute {
-            z-index: 50;
+        .ripple:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 50%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .ripple:focus:not(:active)::after {
+            animation: ripple 0.5s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
+        }
+
+        /* Animación sutil para el footer */
+        footer {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -124,7 +157,11 @@
             allow="autoplay; encrypted-media"
             allowfullscreen
             title="Video de fondo de Israel Portillo"
+            aria-label="Video de fondo"
         ></iframe>
+
+        <!-- Contenido sobre el video -->
+        
     </section>
 
     <!-- Sección Sobre Mí -->
@@ -150,35 +187,35 @@
                     <p class="text-gray-400">Creación de sitios web responsivos y optimizados para SEO.</p>
                     <p class="text-gray-400">Desarrollo de aplicaciones web interactivas.</p>
                     <p class="text-gray-400">Mantenimiento y actualización de sitios web.</p>
-                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                    <button class="ripple mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
                 </div>
                 <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                     <h3 class="text-xl font-semibold mb-3">Diseño Multimedia</h3>
                     <p class="text-gray-400">Edición y producción de videos.</p>
                     <p class="text-gray-400">Animaciones en After Effects y motion graphics.</p>
                     <p class="text-gray-400">Diseño de interfaces y experiencia de usuario (UI/UX).</p>
-                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                    <button class="ripple mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
                 </div>
                 <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                     <h3 class="text-xl font-semibold mb-3">Gestión de Redes Sociales</h3>
                     <p class="text-gray-400">Creación de estrategias de contenido.</p>
                     <p class="text-gray-400">Edición de videos y gráficos para redes.</p>
                     <p class="text-gray-400">Gestión de campañas publicitarias.</p>
-                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                    <button class="ripple mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
                 </div>
                 <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                     <h3 class="text-xl font-semibold mb-3">Desarrollo de Intranets</h3>
                     <p class="text-gray-400">Soluciones personalizadas para empresas.</p>
                     <p class="text-gray-400">Implementación de sistemas internos para gestión.</p>
                     <p class="text-gray-400">Desarrollo de herramientas de automatización.</p>
-                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                    <button class="ripple mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
                 </div>
                 <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                     <h3 class="text-xl font-semibold mb-3">Asesoría Tecnológica</h3>
                     <p class="text-gray-400">Capacitación en herramientas digitales.</p>
                     <p class="text-gray-400">Consultoría para optimización de procesos digitales.</p>
                     <p class="text-gray-400">Análisis y mejora de estrategias digitales.</p>
-                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                    <button class="ripple mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
                 </div>
             </div>
         </div>
@@ -230,7 +267,13 @@
         <p>© 2024 Israel Portillo. Todos los derechos reservados.</p>
     </footer>
 
-    
+    <!-- Modal -->
+    <div id="videoModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-60">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg relative">
+            <button onclick="closeModal()" class="absolute top-2 right-2 text-white hover:text-yellow-400">✕</button>
+            <iframe id="videoIframe" class="w-full h-96" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <!-- JavaScript para el modal -->
     <script>
@@ -239,6 +282,7 @@
             const iframe = document.getElementById('videoIframe');
             iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
             modal.classList.remove('hidden');
+            document.addEventListener('keydown', handleEsc);
         }
 
         function closeModal() {
@@ -246,6 +290,13 @@
             const iframe = document.getElementById('videoIframe');
             iframe.src = '';
             modal.classList.add('hidden');
+            document.removeEventListener('keydown', handleEsc);
+        }
+
+        function handleEsc(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
         }
 
         // Cerrar el modal al hacer clic fuera del contenido
