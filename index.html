@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israel Portillo - Desarrollador Front-End y Diseñador Multimedia</title>
+    <meta name="description" content="Portafolio de Israel Portillo, especializado en desarrollo front-end y diseño multimedia. Soluciones web funcionales y atractivas.">
+    <meta name="author" content="Israel Portillo">
+    <meta name="keywords" content="desarrollo web, diseño multimedia, front-end, UX/UI, portafolio">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP para animaciones -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Animaciones personalizadas */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Estilos para el video de fondo */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .intro-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Fondo oscuro para mejorar la legibilidad */
+            z-index: 0;
+        }
+
+        /* Mejoras de accesibilidad */
+        a:focus, button:focus {
+            outline: 2px solid #fbbf24; /* Amarillo Tailwind */
+            outline-offset: 2px;
+        }
+
+        /* Estilos para el modal */
+        #videoModal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #videoModal .bg-gray-800 {
+            position: relative;
+            z-index: 60;
+        }
+
+        #videoModal .absolute {
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-inter">
+    <!-- Navegación -->
+    <nav class="fixed w-full bg-gray-800 bg-opacity-90 py-4 shadow-md z-50">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-xl font-bold">Israel Portillo</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#intro" class="hover:text-yellow-400 transition duration-300">Inicio</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 transition duration-300">Sobre Mí</a></li>
+                <li><a href="#services" class="hover:text-yellow-400 transition duration-300">Servicios</a></li>
+                <li><a href="#works" class="hover:text-yellow-400 transition duration-300">Proyectos</a></li>
+                <li><a href="#contact" class="hover:text-yellow-400 transition duration-300">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Intro con Video de Fondo -->
+    <section id="intro" class="intro-section">
+        <!-- Video de fondo -->
+        <iframe
+            class="video-background"
+            src="https://www.youtube.com/embed/TnNyiprlXk4?autoplay=1&mute=1&loop=1&playlist=TnNyiprlXk4&controls=0&showinfo=0&rel=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Video de fondo de Israel Portillo"
+        ></iframe>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="about" class="py-20 container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-10">Sobre Mí</h2>
+        <div class="text-center">
+            <h1 class="text-5xl font-bold animate-fade-in mb-4">Israel Portillo</h1>
+            <p class="text-xl mt-3 animate-fade-in mb-8">Desarrollador Front-End & Diseñador Multimedia</p>
+            <a href="#services" class="mt-6 px-6 py-3 bg-yellow-400 text-black rounded-full text-lg hover:bg-yellow-500 transition duration-300 animate-bounce">Ver Más</a>
+        </div>
+        <p class="text-lg text-gray-400 max-w-3xl mx-auto text-center mt-10">
+            Soy un desarrollador front-end y diseñador multimedia con experiencia en creación de contenido digital. Me especializo en desarrollar soluciones web que combinan funcionalidad y diseño atractivo.
+        </p>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="services" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-6">Servicios Ofrecidos</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Desarrollo Web</h3>
+                    <p class="text-gray-400">Creación de sitios web responsivos y optimizados para SEO.</p>
+                    <p class="text-gray-400">Desarrollo de aplicaciones web interactivas.</p>
+                    <p class="text-gray-400">Mantenimiento y actualización de sitios web.</p>
+                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Diseño Multimedia</h3>
+                    <p class="text-gray-400">Edición y producción de videos.</p>
+                    <p class="text-gray-400">Animaciones en After Effects y motion graphics.</p>
+                    <p class="text-gray-400">Diseño de interfaces y experiencia de usuario (UI/UX).</p>
+                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Gestión de Redes Sociales</h3>
+                    <p class="text-gray-400">Creación de estrategias de contenido.</p>
+                    <p class="text-gray-400">Edición de videos y gráficos para redes.</p>
+                    <p class="text-gray-400">Gestión de campañas publicitarias.</p>
+                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Desarrollo de Intranets</h3>
+                    <p class="text-gray-400">Soluciones personalizadas para empresas.</p>
+                    <p class="text-gray-400">Implementación de sistemas internos para gestión.</p>
+                    <p class="text-gray-400">Desarrollo de herramientas de automatización.</p>
+                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-3">Asesoría Tecnológica</h3>
+                    <p class="text-gray-400">Capacitación en herramientas digitales.</p>
+                    <p class="text-gray-400">Consultoría para optimización de procesos digitales.</p>
+                    <p class="text-gray-400">Análisis y mejora de estrategias digitales.</p>
+                    <button class="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition duration-300" onclick="openModal('TnNyiprlXk4')">Ver Video</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="works" class="py-20 container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-6">Proyectos Realizados</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold mb-3">Intranet para TGR Group</h3>
+                <p class="text-gray-400">Implementación de una plataforma interna para mejorar la comunicación y gestión documental dentro de la empresa.</p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold mb-3">Sitio Web para Orgánica Real</h3>
+                <p class="text-gray-400">Creación de una web interactiva con integración de chatbot para mejorar la conversión de clientes.</p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold mb-3">Edición de Videos</h3>
+                <p class="text-gray-400">Montaje, diseño de gráficos animados, inserción de efectos y branding audiovisual para Bronchemus y Podcast.</p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold mb-3">Gestión Técnica en ISM</h3>
+                <p class="text-gray-400">Soporte y mantenimiento de equipos audiovisuales y tecnológicos en aulas y espacios de enseñanza.</p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold mb-3">Producción de Contenido</h3>
+                <p class="text-gray-400">Diseño y edición de material gráfico y audiovisual para aumentar la presencia digital de distintas marcas.</p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xl font-semibold mb-3">Desarrollo Web Personalizado</h3>
+                <p class="text-gray-400">Creación de landing pages, portafolios y tiendas online con optimización en SEO y rendimiento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="py-20 container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-6">Contacto</h2>
+        <p class="text-lg text-gray-400 text-center">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+        <div class="mt-6 text-center">
+            <p>📧 <a href="mailto:portillosarmientoisrael@gmail.com" class="text-yellow-400 hover:text-yellow-500 transition duration-300">portillosarmientoisrael@gmail.com</a></p>
+            <p>📱 <a href="tel:+5491138099859" class="text-yellow-400 hover:text-yellow-500 transition duration-300">+54 9 11 3809-9859</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-800 text-center text-gray-500">
+        <p>© 2024 Israel Portillo. Todos los derechos reservados.</p>
+    </footer>
+
+    
+
+    <!-- JavaScript para el modal -->
+    <script>
+        function openModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            iframe.src = '';
+            modal.classList.add('hidden');
+        }
+
+        // Cerrar el modal al hacer clic fuera del contenido
+        document.getElementById('videoModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
